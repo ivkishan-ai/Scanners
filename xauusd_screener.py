@@ -216,13 +216,6 @@ with st.spinner(f"Loading Live Market Data for Futures..."):
             st.dataframe(new_strat_df.sort_values(by="Bars Since RSI Cross"), width="stretch")
         else:
             st.info("No fresh triggers or exit signals found. Waiting for conditions to align or break.")
-            
-        st.markdown("""
-        ---
-        **🧠 Strategy Details: Momentum Breakout & Exit**
-        * **Entry Trigger:** Tracks when the RSI line formally crosses the 50 median threshold. The price must also be holding on the correct side of the aggressive 5 EMA line (above for Long, below for Short) within the last 5 bars.
-        * **Exit Trigger:** If an active Long setup breaks (Price falls below 5 EMA **OR** RSI dips below 50), an `EXIT LONG` signal is fired. The inverse applies for Short positions.
-        """)
 
     with tab2:
         st.subheader("Recent Momentum Crossovers (9 & 21 EMA)")
